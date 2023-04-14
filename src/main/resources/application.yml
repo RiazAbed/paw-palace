@@ -1,0 +1,7 @@
+Spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: Synchr2001n
+    url: jdbc:postgresql://localhost:5432/animalhotel
+

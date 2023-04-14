@@ -8,6 +8,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
+@Table
 @Entity
 public class Guest {
     @Id
@@ -16,14 +17,19 @@ public class Guest {
     Long id;
     @Column
     String name;
+    @Enumerated(EnumType.STRING)
     @Column
     Gender gender;
-    @Column
+
+    @OneToOne
+    @PrimaryKeyJoinColumn
     AnimalType AnimalType;
-    @Column
-    Owner owner;
+    @OneToOne
+    @PrimaryKeyJoinColumn
+    PetOwner petOwner;
     @Column
     Date dateOfBirth;
+    @Enumerated(EnumType.STRING)
     @Column
     Diet diet;
     @Column

@@ -9,15 +9,16 @@ import lombok.Data;
 @Data
 @Table
 @Entity
-public class AnimalType {
+public class PetOwner {
     @Id
     Long id;
     @Column
-    String species;
+    String name;
     @Column
-    String breed;
-    @Column
-    String coat;
-    @Column
-    String extraIdentifiers;
+    String address;
+    @Column(name = "phone_number")
+    Long phoneNumber;
+    @Column(name = "email_address")
+    String emailAddress;
+
 }
