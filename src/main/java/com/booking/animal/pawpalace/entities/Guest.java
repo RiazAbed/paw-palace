@@ -6,8 +6,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Date;
-
 @Data
+@Table
 @Entity
 public class Guest {
     @Id
@@ -16,19 +16,23 @@ public class Guest {
     Long id;
     @Column
     String name;
+    @Enumerated(EnumType.STRING)
     @Column
     Gender gender;
-    @Column
-    AnimalType AnimalType;
-    @Column
+    @OneToOne
+    @PrimaryKeyJoinColumn
+    AnimalType animalType;
+    @OneToOne
+    @PrimaryKeyJoinColumn
     Owner owner;
-    @Column
+    @Column(name = "dateofbirth")
     Date dateOfBirth;
+    @Enumerated(EnumType.STRING)
     @Column
     Diet diet;
-    @Column
+    @Column(name = "checkin")
     Date checkIn;
-    @Column
+    @Column(name = "checkout")
     Date checkOut;
     @Column
     String notes;
@@ -38,5 +42,4 @@ public class Guest {
     boolean interactionApproved;
     @Column
     boolean neutered;
-
 }
